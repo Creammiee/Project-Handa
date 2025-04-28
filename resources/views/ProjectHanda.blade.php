@@ -8,9 +8,16 @@
 </head>
 <body class="bg-gray-100 min-h-screen flex flex-col items-center justify-start p-8 space-y-8">
 
-    <div class="bg-white p-8 rounded shadow-md w-full max-w-5xl">
-        <h1 class="text-3xl font-bold mb-6 text-center">Project Handa</h1>
+    <!-- Header with gray background -->
+    <div class="flex items-center justify-between w-full max-w-5xl bg-gray-200 p-4 rounded-lg shadow-md">
+        <!-- Left: Mapúa Logo -->
+        <img src="{{ asset('images/Mapua.png') }}" alt="Mapúa Logo" class="h-12">
 
+        <!-- Right: Project Handa -->
+        <h1 class="text-3xl font-bold">PROJECT HANDA</h1>
+    </div>
+
+    <div class="bg-white p-8 rounded shadow-md w-full max-w-5xl">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             
             <!-- Left side: Input form -->
@@ -21,7 +28,7 @@
                     <!-- Height -->
                     <div>
                         <label class="block font-semibold mb-1">Height (meters)</label>
-                        <input type="number" name="height" class="w-full border rounded px-2 py-1" placeholder="Enter height" required>
+                        <input type="number" name="height" class="w-full border rounded px-2 py-1" placeholder="Enter height" required min="1" max="18">
                     </div>
 
                     <!-- Building Category -->
@@ -64,7 +71,7 @@
                     <!-- Typhoon Wind Speed -->
                     <div>
                         <label class="block font-semibold mb-1">Typhoon Wind Speed (km/h)</label>
-                        <input type="number" name="wind_speed" class="w-full border rounded px-2 py-1" placeholder="Enter wind speed" required>
+                        <input type="number" name="wind_speed" class="w-full border rounded px-2 py-1" placeholder="Enter wind speed" required min="0" max="310">
                     </div>
 
                     <!-- Submit Button -->
@@ -108,7 +115,9 @@
                     backgroundColor: 'rgba(220, 38, 38, 0.2)', 
                     borderColor: 'rgba(220, 38, 38, 1)',
                     borderWidth: 2,
-                    pointBackgroundColor: 'rgba(220, 38, 38, 1)'
+                    pointBackgroundColor: 'rgba(220, 38, 38, 1)',
+                    tension: 0.8, // This affects the overall curve
+                    cubicInterpolationMode: 'monotone' // This ensures smooth interpolation
                 }]
             },
             options: {
